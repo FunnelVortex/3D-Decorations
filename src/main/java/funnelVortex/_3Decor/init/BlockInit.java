@@ -1,0 +1,17 @@
+package funnelVortex._3Decor.init;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import funnelVortex._3Decor.objects.blocks.BlockBase;
+import funnelVortex._3Decor.objects.blocks.SolarLight;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+
+// Blocks get initialized in this class.
+public class BlockInit 
+{
+	public static final List<Block> BLOCKS = new ArrayList<Block>(); 
+	
+	public static final Block BLOCK_SOLARLIGHT = new SolarLight();
+}
