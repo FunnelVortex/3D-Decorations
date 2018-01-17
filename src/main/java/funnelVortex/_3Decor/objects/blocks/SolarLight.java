@@ -25,12 +25,17 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 // A new instance of the solarlight class.
-public class SolarLight extends BlockTileEntity<TileEntityNightLight>
-{			
+public class SolarLight extends BlockTileEntity<TileEntityNightLight> 
+{	
+	BlockPos pos;
+	
+	// The tile entity that lights up at night.
+	private TileEntityNightLight tile;
+	
 	// Initialized a new instance of the SolarLight class.
 	public SolarLight() {
 		super("block_solarlight", Material.ROCK);		
-		this.blockHardness=1;	
+		this.blockHardness=1;		
 	}
 	
 	// Gets rid of XRay effect under model.
@@ -40,33 +45,44 @@ public class SolarLight extends BlockTileEntity<TileEntityNightLight>
 		return false;
 	}
 	
-	// On when block is activated.
+	// Activates the tile entity when the block is placed by the player.
 	@Override
 	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack)
 	{
-		//if (!world.isRemote)
-		//{
-			TileEntityNightLight tile = getTileEntity(world, pos);
-			tile.setInfo(world, pos);
-			// tile.update();
-		//}		
-	}
+		this.position = pos;
+		// Gets the tile entity variable.
+		tile = getTileEntity(world, pos);	
+		
+		// Passes in info about the world and block position for the light to use to detect light cycles and sky exposure.
+		tile.setLight(world, pos, placer);	
+	}		
 	
+	// Makes the block walk throughable
 	@Override
 	public boolean isPassable(IBlockAccess world, BlockPos pos) 
 	{
 		return true;
 	}
+	
+	// This override will be for removing the stuck tile entity after removing the block.
+	@Override
+    public boolean removedByPlayer(IBlockState state, World world, BlockPos pos, EntityPlayer player, boolean willHarvest)
+    {
+        this.onBlockHarvested(world, pos, state, player);
+        return world.setBlockState(pos, net.minecraft.init.Blocks.AIR.getDefaultState(), world.isRemote ? 11 : 3);
+        
+        // Code to remove tile entity stuck in world will go here.
+    }
 
+	// Gets the tile entity class on registration.
 	@Override
 	public Class getTileEntityClass() {
-		// TODO Auto-generated method stub
 		return TileEntityNightLight.class;
 	}
 
+	// Creates the tile entity on registration.
 	@Override
 	public TileEntityNightLight createTileEntity(World world, IBlockState state) {
-		// TODO Auto-generated method stub
-		return new TileEntityNightLight(this);
+		return new TileEntityNightLight(this, world);
 	}
 }

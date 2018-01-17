@@ -3,6 +3,7 @@ package funnelVortex._3Decor;
 import funnelVortex._3Decor.objects.blocks.SolarLight;
 import funnelVortex._3Decor.objects.blocks.counter.BlockCounter;
 import funnelVortex._3Decor.proxy.CommonProxy;
+import funnelVortex._3Decor.util.handlers.RecipeHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.main.Main;
 import net.minecraft.init.Blocks;
@@ -45,7 +46,8 @@ public class _3Decor
     @EventHandler
     public static void preInit(FMLPreInitializationEvent event)
     {
-		// GameRegistry.registerTileEntity(light.getTileEntityClass(), light.getRegistryName().toString());
+    	RecipeHandler.registerCrafting();
+    	// GameRegistry.registerTileEntity(light.getTileEntityClass(), light.getRegistryName().toString());
     	//GameRegistry.registerTileEntity(counter.getTileEntityClass(), counter.getRegistryName().toString());
     }
     
