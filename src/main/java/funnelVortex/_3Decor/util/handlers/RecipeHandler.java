@@ -38,5 +38,11 @@ public class RecipeHandler
 						 "I",
 						 "R", 
 						 'I', Items.IRON_INGOT, 'R', Blocks.REDSTONE_BLOCK);
+		
+		GameRegistry.addShapedRecipe(new ResourceLocation("decor:block_largepot"), resourceLocation, new ItemStack(BlockInit.BLOCK_LARGEPOT), 
+				"BDB", 
+				 "BDB",
+				 "BBB", 
+				 'D', Blocks.DIRT, 'B', Items.BRICK);
 	}
 }
