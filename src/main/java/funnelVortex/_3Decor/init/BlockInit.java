@@ -5,6 +5,7 @@ import java.util.List;
 
 import funnelVortex._3Decor.objects.blocks.BlockBase;
 import funnelVortex._3Decor.objects.blocks.SolarLight;
+import funnelVortex._3Decor.objects.blocks.TvAntenna;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
@@ -14,4 +15,6 @@ public class BlockInit
 	public static final List<Block> BLOCKS = new ArrayList<Block>(); 
 	
 	public static final Block BLOCK_SOLARLIGHT = new SolarLight();
+	
+	public static final Block BLOCK_TVANTENNA = new TvAntenna();
 }
