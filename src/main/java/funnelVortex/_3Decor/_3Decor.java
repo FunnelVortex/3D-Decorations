@@ -46,7 +46,6 @@ public class _3Decor
     @EventHandler
     public static void preInit(FMLPreInitializationEvent event)
     {
-    	RecipeHandler.registerCrafting();
     	// GameRegistry.registerTileEntity(light.getTileEntityClass(), light.getRegistryName().toString());
     	//GameRegistry.registerTileEntity(counter.getTileEntityClass(), counter.getRegistryName().toString());
     }
