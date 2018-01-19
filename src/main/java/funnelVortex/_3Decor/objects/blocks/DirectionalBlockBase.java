@@ -29,7 +29,7 @@ import net.minecraftforge.event.world.BlockEvent.PlaceEvent;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class DirectionalBlockBase extends Block implements IHasModel
+public class DirectionalBlockBase extends BlockBase implements IHasModel
 {	
 	// The block position.
 	public BlockPos position;
@@ -39,14 +39,8 @@ public class DirectionalBlockBase extends Block implements IHasModel
 	// Initializes a new instance of the BlockBase class.
 	public DirectionalBlockBase(String name, Material material) 
 	{
-		super(material);
-		setUnlocalizedName(name);
-		setRegistryName(name);
-		setCreativeTab(CreativeTabs.DECORATIONS);
+		super(name, material);
 		this.setDefaultState(this.getBlockState().getBaseState().withProperty(FACING, EnumFacing.NORTH));
-		
-		BlockInit.BLOCKS.add(this);
-		ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}
 	
 	// Gets rid of XRay effect under model.
@@ -83,6 +77,42 @@ public class DirectionalBlockBase extends Block implements IHasModel
     public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand)
     {
         return getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
+    }
+
+    public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)
+    {
+        this.setDefaultFacing(worldIn, pos, state);
+    }
+
+    private void setDefaultFacing(World worldIn, BlockPos pos, IBlockState state)
+    {
+        if (!worldIn.isRemote)
+        {
+            IBlockState iblockstate = worldIn.getBlockState(pos.north());
+            IBlockState iblockstate1 = worldIn.getBlockState(pos.south());
+            IBlockState iblockstate2 = worldIn.getBlockState(pos.west());
+            IBlockState iblockstate3 = worldIn.getBlockState(pos.east());
+            EnumFacing enumfacing = (EnumFacing)state.getValue(FACING);
+
+            if (enumfacing == EnumFacing.NORTH && iblockstate.isFullBlock() && !iblockstate1.isFullBlock())
+            {
+                enumfacing = EnumFacing.SOUTH;
+            }
+            else if (enumfacing == EnumFacing.SOUTH && iblockstate1.isFullBlock() && !iblockstate.isFullBlock())
+            {
+                enumfacing = EnumFacing.NORTH;
+            }
+            else if (enumfacing == EnumFacing.WEST && iblockstate2.isFullBlock() && !iblockstate3.isFullBlock())
+            {
+                enumfacing = EnumFacing.EAST;
+            }
+            else if (enumfacing == EnumFacing.EAST && iblockstate3.isFullBlock() && !iblockstate2.isFullBlock())
+            {
+                enumfacing = EnumFacing.WEST;
+            }
+
+            worldIn.setBlockState(pos, state.withProperty(FACING, enumfacing), 2);
+        }
     }
 	
     @Override
