@@ -44,5 +44,10 @@ public class RecipeHandler
 				 "BDB",
 				 "BBB", 
 				 'D', Blocks.DIRT, 'B', Items.BRICK);
+		
+		GameRegistry.addShapedRecipe(new ResourceLocation("decor:block_woodboards"), resourceLocation, new ItemStack(BlockInit.BLOCK_WOODBOARDS, 6), 
+				"SSS", 
+				 "SSS",
+				 'S', Blocks.WOODEN_SLAB);
 	}
 }

@@ -2,5 +2,6 @@ tile.block_solarlight.name=Solar Light
 tile.block_tvantenna.name=TV Antenna
 tile.block_lightningrod.name=Lightning Rod
 tile.block_largepot.name=Large Pot
+tile.block_woodbards.name=Wood Boards
 
 item.item_test.name=Test Item

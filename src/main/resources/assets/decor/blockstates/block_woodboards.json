@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "decor:block_woodboards" },
+        "facing=south": { "model": "decor:block_woodboards", "Y": 180 },
+        "facing=east": { "model": "decor:block_woodboards", "Y": 90},
+        "facing=west": { "model": "decor:block_woodboards", "Y": 270 }
+    }
+}

@@ -34,7 +34,7 @@ public class LightningRod extends BlockTileEntity<TileEntityLightningRod>
 	{
 		this.tile = getTileEntity(world, pos);	
 		
-		this.tile.setPosition(pos);
+		this.tile.setPosition(pos);	
 	}		
 
 	@Override
