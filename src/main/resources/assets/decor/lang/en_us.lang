@@ -6,3 +6,5 @@ tile.block_woodboards.name=Wood Boards
 tile.block_truss.name=Truss
 
 item.item_test.name=Test Item
+
+itemGroup.decorTab=3D Decorations

@@ -1,5 +1,6 @@
 package funnelVortex._3Decor;
 
+import funnelVortex._3Decor.init.BlockInit;
 import funnelVortex._3Decor.objects.blocks.SolarLight;
 import funnelVortex._3Decor.objects.blocks.counter.BlockCounter;
 import funnelVortex._3Decor.proxy.CommonProxy;
@@ -9,6 +10,7 @@ import net.minecraft.client.main.Main;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -43,6 +45,13 @@ public class _3Decor
 	// Creates the proxy.
 	@SidedProxy(clientSide = CLIENT, serverSide = COMMON)
 	public static CommonProxy proxy;
+
+	public static final CreativeTabs decorTab = new CreativeTabs("decorTab") {
+        @Override
+        public ItemStack getTabIconItem() {
+            return new ItemStack(BlockInit.BLOCK_WOODBOARDS);
+        }
+    };
 	
 	// Events handled before mod is initialized.
     @EventHandler
