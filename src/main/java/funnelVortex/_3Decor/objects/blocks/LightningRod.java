@@ -22,12 +22,6 @@ public class LightningRod extends BlockTileEntity<TileEntityLightningRod>
 		return true;
 	}
 	
-	@Override
-	public boolean isOpaqueCube(IBlockState blockState) 
-	{
-		return false;
-	}
-	
 	// Activates the tile entity when the block is placed by the player.
 	@Override
 	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack)

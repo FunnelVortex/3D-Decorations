@@ -1,6 +1,7 @@
 package funnelVortex._3Decor.objects.blocks;
 
 import net.minecraft.block.BlockStairs;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockFaceShape;
@@ -20,6 +21,7 @@ public class WoodBoards extends DirectionalBlockBase{
 		super("block_woodboards", Material.WOOD);
 		// TODO Auto-generated constructor stub
 		this.setHardness(1);
+		this.blockSoundType = SoundType.WOOD;
 	}
 	
 	@Override

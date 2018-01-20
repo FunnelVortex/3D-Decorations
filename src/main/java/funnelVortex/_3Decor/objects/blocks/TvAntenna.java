@@ -18,10 +18,4 @@ public class TvAntenna extends BlockBase
 	{
 		return true;
 	}
-	
-	@Override
-	public boolean isOpaqueCube(IBlockState blockState) 
-	{
-		return false;
-	}
 }

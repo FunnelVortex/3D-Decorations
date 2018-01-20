@@ -17,14 +17,7 @@ public class LargePot extends BlockBase {
 	}
 	
 	@Override
-	public boolean isOpaqueCube(IBlockState blockState) 
-	{
-		return false;
-	}
-	
-	@Override
 	 public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable) {
 		return true;
 	}
-
 }
