@@ -4,6 +4,7 @@ tile.block_lightningrod.name=Lightning Rod
 tile.block_largepot.name=Large Pot
 tile.block_woodboards.name=Wood Boards
 tile.block_truss.name=Truss
+tile.block_lavalamp.name=Lava Lamp
 
 item.item_test.name=Test Item
 

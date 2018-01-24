@@ -5,6 +5,7 @@ import java.util.List;
 
 import funnelVortex._3Decor.objects.blocks.BlockBase;
 import funnelVortex._3Decor.objects.blocks.LargePot;
+import funnelVortex._3Decor.objects.blocks.LavaLamp;
 import funnelVortex._3Decor.objects.blocks.LightningRod;
 import funnelVortex._3Decor.objects.blocks.SolarLight;
 import funnelVortex._3Decor.objects.blocks.Truss;
@@ -29,4 +30,6 @@ public class BlockInit
 	public static final Block BLOCK_WOODBOARDS = new WoodBoards();
 	
 	public static final Block BLOCK_TRUSS = new Truss();
+	
+	public static final Block BLOCK_LAVALAMP = new LavaLamp();
 }
