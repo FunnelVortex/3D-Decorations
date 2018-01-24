@@ -1,6 +1,7 @@
 package funnelVortex._3Decor.util.handlers;
 
 import funnelVortex._3Decor.init.BlockInit;
+import funnelVortex._3Decor.init.ItemInit;
 import net.minecraft.client.gui.recipebook.RecipeList;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -49,5 +50,29 @@ public class RecipeHandler
 				"SSS", 
 				 "SSS",
 				 'S', Blocks.WOODEN_SLAB);
+		
+		GameRegistry.addShapedRecipe(new ResourceLocation("decor:lavalamp_base"), resourceLocation, new ItemStack(ItemInit.LAVALAMP_BASE), 
+				"IGI", 
+				 " I ",
+				 "III", 
+				 'I', Items.IRON_NUGGET, 'G', Items.GLOWSTONE_DUST);
+		
+		GameRegistry.addShapedRecipe(new ResourceLocation("decor:lavalamp_body"), resourceLocation, new ItemStack(ItemInit.LAVALAMP_BODY), 
+				" G ", 
+				 "GLG",
+				 "GGG", 
+				 'G', Blocks.GLASS_PANE, 'L', Items.LAVA_BUCKET);
+		
+		GameRegistry.addShapedRecipe(new ResourceLocation("decor:lavalamp_cap"), resourceLocation, new ItemStack(ItemInit.LAVALAMP_CAP), 
+				" I ", 
+				 "I I",
+				 "I I",
+				 'I', Items.IRON_NUGGET);
+		
+		GameRegistry.addShapedRecipe(new ResourceLocation("decor:block_lavalamp"), resourceLocation, new ItemStack(BlockInit.BLOCK_LAVALAMP), 
+				"C", 
+				 "B",
+				 "A",
+				 'A', ItemInit.LAVALAMP_BASE, 'B', ItemInit.LAVALAMP_BODY, 'C', ItemInit.LAVALAMP_CAP);
 	}
 }

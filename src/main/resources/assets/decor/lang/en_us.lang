@@ -6,6 +6,9 @@ tile.block_woodboards.name=Wood Boards
 tile.block_truss.name=Truss
 tile.block_lavalamp.name=Lava Lamp
 
+item.lavalamp_base.name=Lava Lamp Base
+item.lavalamp_body.name=Lava Lamp Body
+item.lavalamp_cap.name=Lava Lamp Cap
 item.item_test.name=Test Item
 
 itemGroup.decorTab=3D Decorations

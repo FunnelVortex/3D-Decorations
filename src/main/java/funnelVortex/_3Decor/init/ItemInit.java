@@ -12,4 +12,10 @@ public class ItemInit
 	public static final List<Item> ITEMS = new ArrayList<Item>(); 
 	
 	public static final Item TEST_ITEM = new ItemBase("item_test");
+	
+	public static final Item LAVALAMP_BASE = new ItemBase("lavalamp_base");
+	
+	public static final Item LAVALAMP_BODY = new ItemBase("lavalamp_body");
+	
+	public static final Item LAVALAMP_CAP = new ItemBase("lavalamp_cap");
 }
